@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/setting_bg"
+    tools:context=".SettingActivity"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@color/setting_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_seat_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="false"
+            leon:leftText="自动入座开关"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_seat_logs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowUnderLine="false"
+            leon:isShowRightText="true"
+            leon:leftText="入座日志"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:background="@color/setting_bg"
+        android:id="@+id/auto_seat_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:background="@color/setting_bg"
+            android:gravity="left"
+            android:text="自动入座时间"
+            android:textColor="@color/setting"
+            android:textSize="@dimen/setting_textsize" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_seat_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowUnderLine="false"
+            leon:isShowRightText="true"
+            leon:leftText="自动入座时间"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="到达指定时间时，将触发任务：自动入座所有待入座的座位。时间默认是06:30" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lfile_white"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/auto_seat_go"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_aboutbtn"
+                android:text="立即执行"
+                android:textAllCaps="true"
+                android:textAppearance="@style/LinkText.Bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="立即执行当前任务，适合不小心错过了设置的时间的情况。或者就想测试下效果。。" />
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

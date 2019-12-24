@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_about"
+    >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/fanfoudroid_logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fanfoudroid_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="version info"
+            android:textColor="#888"
+            style="@style/normalText"
+            />
+        <TextView android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fanfoudroid_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/canceled"
+            android:text="更新说明"
+            style="@style/normalText.span"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:background="@color/ccc"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            >
+            <!-- 简介 -->
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_introduce_title"
+                style="@style/normalText.Big"
+                />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_introduce"
+                style="@style/normalText"
+                />
+            <!-- 特性 -->
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_special_title"
+                style="@style/normalText.Big"
+                />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_special"
+                android:lastBaselineToBottomHeight="@dimen/activity_vertical_margin"
+                style="@style/normalText"
+                />
+            <!-- 开发者 -->
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_developers_title"
+                style="@style/normalText.Big"
+                />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_developers"
+                style="@style/normalText"
+                android:autoLink="web|email"
+                />
+            <!-- 致谢名单 -->
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_thanks_title"
+                style="@style/normalText.Big"
+                />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_thanks"
+                style="@style/normalText"
+                android:autoLink="web|email"
+                />
+            <!-- 相关链接 -->
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_links_title"
+                style="@style/normalText.Big"
+                />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web|email"
+                android:text="@string/about_links" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/ok_btn"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_aboutbtn"
+            android:text="@string/about_label_ok" />
+
+        <Button
+            android:id="@+id/feedback_btn"
+            android:layout_width="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="40dp"
+            android:text="@string/about_label_feedback"
+            android:background="@drawable/shape_aboutbtn"
+            android:textAllCaps="true"
+            android:textAppearance="@style/LinkText" />
+    </LinearLayout>
+
+</LinearLayout>
+
+

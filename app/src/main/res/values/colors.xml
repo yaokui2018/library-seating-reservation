@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#008577</color>
+    <color name="num">#2196F3</color>
+    <color name="text_list">#888</color>
+    <color name="ccc">#ccc</color>
+    <color name="setting">#555</color>
+    <color name="setting_bg">#eee</color>
+    <color name="black">#444444</color>
+    <color name="red">#E53935</color>
+
+    <!--入座状态-->
+    <color name="unseat">#FFB300</color>
+    <color name="seated">#7CB342</color>
+    <color name="canceled">#D81B60</color>
+</resources>

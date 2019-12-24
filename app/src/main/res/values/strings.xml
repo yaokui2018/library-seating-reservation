@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name1">座位预约·豪华版</string>
+    <string name="app_name">Library seating reservation</string>
+    <string name="title_account1">我的账号</string>
+    <string name="title_account">My Accounts</string>
+    <string name="title_book">Seat Reservation</string>
+    <string name="title_binding1">账号绑定</string>
+    <string name="title_binding">Account binding</string>
+    <string name="title_query1">预约查询</string>
+    <string name="title_query">Search Record</string>
+
+    <!-- About -->
+    <string name="about_introduce_title">\n项目介绍\n</string>
+    <string name="about_introduce">座位预约·豪华版是在zimu大佬的[研app v2.1]基础上修改而来。
+        \n\nლ 软件界面虽然不咋地，但是功能很实用。ლ</string>
+    <string name="about_special_title">\n特性\n</string>
+    <string name="about_special">1.座位预约账号绑定无限制；
+        \n2.无预约日期限制；
+        \n3.支持批量导入/导出账号；
+        \n4.支持多种账号排序方式（入座模式和预约模式极其人性化 [滑稽]）；
+        \n5....；</string>
+    <string name="about_links_title">\n相关链接\n</string>
+    <string name="about_links">
+        官网: https://yaokui.ltd
+        \n\n备用链接：http://yaokui.net
+        \n\n软件更新：https://www.lanzous.com/b664686
+        </string>
+    <string name="about_developers_title">\n开发者\n</string>
+    <string name="about_developers">薄荷你玩: 1361453981@qq.com</string>
+    <string name="about_thanks_title">\n感谢\n</string>
+    <string name="about_thanks">感谢所有对这个项目提供了切实帮助的人们。</string>
+    <string name="about_label_ok">ok</string>
+    <string name="about_label_feedback">反馈</string>
+    <string name="title_activity_my_scan">MyScanActivity</string>
+    <string name="title_activity_crazy">CrazyActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+</resources>

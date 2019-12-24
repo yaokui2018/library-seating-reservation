@@ -1,0 +1,14 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/Sign"
+        android:title="sign"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/navigation_setting"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_settings_applications_black_24dp"
+        app:showAsAction="always"
+        android:title="设置" />
+</menu>

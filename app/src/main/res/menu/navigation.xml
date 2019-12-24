@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_account" />
+
+    <item
+        android:id="@+id/navigation_book"
+        android:icon="@drawable/ic_import_contacts_black_24dp"
+        android:title="@string/title_book" />
+
+    <item
+        android:id="@+id/navigation_binding"
+        android:icon="@drawable/ic_person_add_black_24dp"
+        android:title="@string/title_binding" />
+
+    <item
+        android:id="@+id/navigation_query"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/title_query" />
+
+    <!--<item-->
+        <!--android:id="@+id/navigation_setting"-->
+        <!--android:icon="@drawable/ic_settings_black_24dp"-->
+        <!--android:title="设置" />-->
+
+</menu>

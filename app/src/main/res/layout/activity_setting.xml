@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/setting_bg"
+    tools:context=".SettingActivity"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:background="@color/setting_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="特色服务"
+            android:background="@color/setting_bg"
+            android:textColor="@color/setting"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/setting_textsize"
+            android:gravity="left"/>
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/ShutupLauncher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="true"
+            leon:leftText="开机自启动"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="自动预约"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_seat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="自动入座"
+            leon:isShowRightText="true"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/qqun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowUnderLine="false"
+            leon:leftText="交流反馈&amp;帮助"
+            leon:isShowRightText="false"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="全局"-->
+            <!--android:background="@color/setting_bg"-->
+            <!--android:textColor="@color/setting"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:textSize="@dimen/activity_vertical_margin"-->
+            <!--android:gravity="center"/>-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="主界面"
+            android:background="@color/setting_bg"
+            android:textColor="@color/setting"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/setting_textsize"
+            android:gravity="left"/>
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/app_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="主界面标题显示"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/signTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="Sign更新成功提示方式"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/skip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="false"
+            leon:leftText="不显示加载动画"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="账号"
+            android:background="@color/setting_bg"
+            android:textColor="@color/setting"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/setting_textsize"
+            android:gravity="left"/>
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="账号排序方式"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/countID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="账号ID显示"
+            leon:isShowUnderLine="false"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:background="@color/setting_bg"
+            android:gravity="left"
+            android:text="座位预约"
+            android:textColor="@color/setting"
+            android:textSize="@dimen/setting_textsize" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/bookshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="座位预约账号显示"
+            leon:LtextColor="@color/black"
+            leon:isShowRightText="true"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/booksort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:leftText="界面显示排序按钮"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+                    android:id="@+id/stateBr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    leon:rightStyle="iconSwitch"
+                    leon:leftText="'状态'换行显示"
+                    leon:LtextColor="@color/black"
+                    tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+                    android:id="@+id/delBind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    leon:rightStyle="iconSwitch"
+                    leon:leftText="显示解绑选项"
+                    leon:LtextColor="@color/black"
+                    tools:ignore="MissingConstraints" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/skipLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="false"
+            leon:leftText="跳过loading加载框"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="不显示座位预约界面的“正在加载数据，请稍等…”加载框" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:background="@color/setting_bg"
+            android:gravity="left"
+            android:text="预约记录"
+            android:textColor="@color/setting"
+            android:textSize="@dimen/setting_textsize" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/sortHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="记录排序方式"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/wipeHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="显示清空记录按钮（记录数大于3时）"
+            leon:isShowUnderLine="true"
+            leon:LtextColor="@color/black"
+            leon:rightStyle="iconSwitch"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/hideCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="不显示“已取消”记录"
+            leon:isShowUnderLine="true"
+            leon:LtextColor="@color/black"
+            leon:rightStyle="iconSwitch"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/todayHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="只显示今天以后的记录"
+            leon:isShowUnderLine="false"
+            leon:LtextColor="@color/black"
+            leon:rightStyle="iconSwitch"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:background="@color/setting_bg"
+            android:gravity="left"
+            android:text="其他"
+            android:textColor="@color/setting"
+            android:textSize="@dimen/setting_textsize" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/notice3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="同一公告仅显示3次"
+            leon:isShowUnderLine="true"
+            leon:LtextColor="@color/black"
+            leon:rightStyle="iconSwitch"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/fresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="页面下拉刷新（完美）"
+            leon:isShowUnderLine="true"
+            leon:LtextColor="@color/black"
+            leon:rightStyle="iconSwitch"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/UserImprove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:leftText="加入用户体验改进计划"
+            leon:isShowUnderLine="false"
+            leon:LtextColor="@color/black"
+            leon:rightStyle="iconSwitch"
+            tools:ignore="MissingConstraints" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="50dp"
+            leon:leftText="关于"
+            leon:leftIcon="@mipmap/ic_launcher"
+            leon:leftTextMarginLeft="0dp"
+            leon:LtextColor="@color/black"
+            leon:isShowUnderLine="false"
+            leon:rightTextSize="15"
+            leon:rightTextColor="#ccc"
+            leon:isShowRightText="true"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

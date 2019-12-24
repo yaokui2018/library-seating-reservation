@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateAboutActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.11" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-11-29]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 自动预约加了一点东西。" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.10" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-11-25]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复上一版本遗留问题。（改动挺多的，不想码字了。。）" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.9" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-11-24]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 适应学校整改(重新添加sign验证）。
+            \n2.主界面和疯狂抢座界面禁用屏幕旋转（防止由于屏幕旋转带来的activity重启，影响抢座）。
+            \n3.添加了一个设置项。。。" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.8" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-11-06]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 适应学校整改。
+            \n2.优化了一些提示。
+            \n\n本来准备优化一下体验的，由于时间关系，就这样吧。。。洗澡洗了一小时。。。。。。。" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.7" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-10-15]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复在部分安卓低版本设备上出现的账号登录信息保存异常的问题。
+            \n2.彻底去除疯狂抢座页面中的获取sign值按钮，永绝后患。
+            \n3.疯狂抢座界面加入Test按钮，可以测试下当前账号预约是否存在异常。
+            \n4.取消预约日期选择框日期范围限制。
+            \n5.其他细节调整。
+            \n\n软件有时候可能会出现部分账号登录信息异常（表现为操作时提示请使用官方APP...），这时候切换一个学号就可以了。或者返回All StuIds页，下拉刷新一下就可以了。
+            \n\n希望这是最后一次更新了。" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.6" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-10-13]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [[[[[完美]]]]]解决部分机型预约信息一直处于加载中的问题（都把加载模式切换回急速吧）。
+            \n2.微调了一下自动预约执行策略，但愿能解决当前存在的小问题。" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.5" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-10-12]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 添加本地sign值数量不足提醒及APP启动时对sign数量进行检测。
+            \n2.sign值联网获取时支持选择最大获取条数。
+            \n3.修复记录页入座/离开功能异常问题。
+            \n4.优化本地sign值加载方式，避免因修改系统时间导致的本地sign值无法正常获取的问题。
+            \n5.稍微改了一下自动预约sign值获取方式，不过估计没什么太大的效果。
+            \n6.本地sign列表界面增加[自动删除十分钟前记录]开关。
+            \n7.理论上修复软件内踢座功能（没测试）。
+            \n8.其他细节调整。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.4" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-10-11]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复因域名https协议证书到期，导致的sign值获取异常问题。
+            \n2.修复入座成功提示异常问题。
+            \n3.调整账号默认排序方式为按预约状态排序（入座模式）。
+            \n4.更改sign值获取策略，改成本地存储模式，无需频繁手动获取了。
+            \n5.调整疯狂抢座限制方式，11点59前也可开启。
+            \n6.全新的疯狂抢座打开方式，支持多任务。
+            \n7.其他细节调整。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.3" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-09-28]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 账号列表页底部增加加载模式切换（急速和兼容）。
+            \n2.修复账号信息复制时有时出现账号不对应的问题。
+            \n3.添加考研倒计时提醒（每三天）。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.2" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-09-27]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 更改接口参数。
+            \n2.添加账号分享功能。
+            \n3.调整记录界面内容。
+            \n4.调整扫座自动获取sign时间间隔为1分钟。
+            \n5.修改了一些设置项默认设置。
+            \n6.调整自动入座后，再次点击入座能够弹出离席提示。
+            \n7.其他细节调整。
+            \n\n注：为了节省精力，此版本后软件代码将不再进行加密，请务必不要将本软件安装包外泄。以免被不法分子利用！" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.1" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-09-22]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修改启动APP时自动同步最新sign值（快速）。
+            \n2.添加“获取sign”菜单项。
+            \n3.调整主界面和标题栏样式（将设置按钮调整到标题栏）
+            \n4.修复之前页面无法获取滚动高度的问题（zimu大佬的锅）。因此完美解决了之前页面下拉刷新存在的瑕疵！！！
+            \n5.疯狂抢座界面加入sign值快捷获取。同时扫座时每隔2分钟自动获取最新sign值（手机得保持网络访问）。
+            \n6.设置中加入sign值获取成功提示方式设置项。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.5.0" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-09-13]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 更改接口参数。
+            \n2.调整自动预约/入座日志为保留当天的记录。
+            \n3.主界面标题加入考研倒计时提醒。
+            \n4.修改软件图标。丑也是一种态度~
+            \n5.彻底废弃之前的版本。
+             \n\n从本版本开始，请务必保持低调使用。请勿与任何人谈论此软件，就当这软件不存在吧！" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.6" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-09-06]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [座位预定]加入疯狂抢座模式。支持抢座和扫座。入口：座位预定->疯狂抢座
+             \n\n还抢不到座位你来砍我。[/抠鼻]" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.5" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-31]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复自动预约/入座服务在月末日期变更时出现的月份异常问题。
+             \n2.部分功能调整优化。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.4" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-31]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修改入座和回座接口参数，无视定位。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.3" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-29]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 调整自动预约/入座服务后台保活策略，理论上是后台挂一个月都不会被系统kill的。
+            \n2.调整通知布局显示，解决部分机型上出现的通知内容显示为白色，无法看清的问题。
+            \n3.加入自动预约/入座日志，方便查看任务执行情况。
+            \n4.调整自动预约时间精确到秒，真正实现秒抢座。
+            \n5.座位预约/记录界面：完善'离开'功能
+            \n6.修复上一版本出现的“网络已连接”乱码问题
+            \n7.其他：还改了啥我也不知道了啊 脑瓜子嗡嗡的" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.2" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-28]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复安卓8及以上系统通知栏通知无法显示的问题。
+            \n2.修复自动预约时存在的一些bug。
+            \n3.添加网络状态监听以及开机自启动开关（没测试）。
+            \n4.修复连续预约模式下'时间'自动填充存在的一些小问题。
+            \n5.加入暂离、长离和回座功能（过23点了，没来及测试）
+            \n6.更加更加完善自动预约和自动入座功能，完美！！！
+            \n7.右上角菜单加入退出软件选项，可彻底关闭软件。
+            \n8.其他：调整部分界面显示，更友好。
+            \n\n提示：自动任务执行结果可通过预约记录查看
+            \n\n累!!!" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.1" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-27]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复上一版本中遗留的一些bug。
+            \n2.修改座位预约时默认填充的结束时间为23:00。
+            \n3.调整连续预约模式：一次预约完成后，下一次预约将保持和上一次完全一致的预约时间
+            \n4.完善扫码功能：修复bug、加入踢座功能。
+            \n5.又修改了一些接口参数，适应新版预约系统（v2.4.0)。。。
+            \n6.加入自动预约和自动入座功能，可在设置中开启！！！
+            \n\n还有一些体验相关的内容没加（比如开启自启、网络连通性监听等...），没时间了——2019.08.27 23:30
+            \n\n太累了!!!
+        " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.4.0-beta" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-25]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 更改接口参数，适应图书馆预约系统整改。
+            \n\n只是修改了一些接口参数，没有额外的功能。。后续更新视情况而定。
+            \n由于此次图书馆系统更新导致之前的漏洞基本都被填补/废弃了，所以.....
+            \n现在顶多就是加个自动预约/自动入座的功能，但是有没有必要去加，看情况吧
+        " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.3.1" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-08-10]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 调整座位地图位置显示，和实际位置显示一致（之前的是因为官方APP里的显示就是不正确的，跟我没关系ヽ(ー_ー)ノ）。
+            \n2. 修改部分吐司提示样式（譬如退出软件），好看。
+            \n3. 调整优化公告信息获取方式。
+            \n4. 授权码界面加入通知提醒功能。
+            \n\n没有太大的更新点，主要是闲着没事，改改代码。。。
+        " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.3.0" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-07-12]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 调整软件界面显示，主体文字替换为英文显示（包括APP名）。
+            \n2. 修复预约记录界面ID达三位数后显示不全的问题。
+            \n3. 连续预约模式下增加可用学号数量显示。
+            \n4. 修复连续预约模式日期自增不受约束的问题，修改普通预约模式下预约日期不影响到连续预约模式数据。
+            \n5. 修改彩蛋内容，可自定义预约天数，建议和官方保持一致。
+            \n6. 修改授权页'获取授权码'提示方式。
+            \n7. 座位地图界面增加吐司提示。
+            \n8. 填补了一些安全漏洞。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.9" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-07-07]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 加入扫码入座功能，在图书馆内建议使用扫码入座。（同时支持离座和临时占座）
+            \n2. 软件部分界面调整。
+            \n3. 更改软件更新策略，提升安全性。
+            \n\n 【注意】本版本更新后需要重新获取授权码。请保持低调使用！" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.8" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-06-30]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 座位预约界面加入“记录”按钮，打开界面同图书馆官方APP。--这座位是我预约的，不信你看[/滑稽]--
+            \n2. 座位预约修改调整为当账号密码不正确时也能查看预约信息。/*哎呀，这座位还是我的~~*/
+            \n3. 预约查询界面增加支持显示预约状态，并支持修改显示最大记录条数（自己研究）。
+            \n4. 修改接口参数，积极预防学校整改（success）。[这才是重点^^]
+            \n5. 调整授权码填写页提示语，通俗易懂。
+            \n6. 更改部分设置项默认设置，体验更好（个人观点）。
+            \n7. 添加修改主页标题文字设置项，低调低调。
+            \n8. 修改座位预约解绑账号时，不自动刷新页面。
+            \n9. 部分界面调整优化。
+            \n\n我是猪🐷" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.7" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-12]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [修复] 修复上一版本造成的校园网不认证无法加载座位预约界面的问题
+            \n2. [预约记录] 增加“昨天”、“今天”和“明天”提示文字。增加更改记录排序方式等设置项，可在设置中更改。
+            \n3. [设置] 增加与“预约记录”相关的多个设置项。
+            \n4. 预约查询界面预留了一个在线活动页链接（暂时没用）。
+            \n\n——就这样了！！要是再碰这软件代码我就是猪🐷" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.6" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-12]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [座位地图] 新增自习室座位地图预览界面，入口：右上角菜单-座位地图 / 座位预定界面的“地图”按钮
+            \n2. [连续预约模式] 新增支持自定义开始和结束时间，根据座位预定界面下方提示即可完成修改
+            \n3. [预约记录] 由之前的长按列表清空记录更改为删除单条记录，同时在底部增加清空记录按钮（可在设置中设置是否显示）
+            \n4. [设置] 增加“预约记录-显示清空记录按钮”设置项
+            \n5. 其他细节调整/优化。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.5" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-11]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [入座模式] 调整优化，使得使用非本软件产生的预约记录也能根据预约状态排序
+            \n2. [预约查询] 修改最大支持查询预约记录数为21条
+            \n3. [座位预定] 完美解决个别账号预约时提示“已有预约记录”的异常现象
+            \n4. [批量绑定] 调整按钮位置，更显眼" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.4" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-10]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [连续预约模式]修复入座后立即点击预订，学号列表中不显示当前账号的bug
+            \n2. [预约记录] ①修改排序方式为按座位预约时间排序；②增加“已逾期”提示；③增加备注信息显示
+            \n3. [导出账号] 增加“复制至剪贴板”按钮，解决部分手机导出文件时出现的异常现象
+            \n\n——这回真得溜了~" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.3" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-09]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 连续预约模式，时间自增方式微调
+            \n2. 优化“所有绑定的学号”页面加载提示
+            \n\n——差不多就这样啦，安心考研咯~" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.2" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-09]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 修复座位预约界面解绑账号数据异常的bug
+            \n2. 修复上一版本提到的，连续预约模式下存在的账号显示问题
+            \n3. 优化入座成功提示。
+            \n4. 优化“新版特性”提示，加入版本显示" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.1" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-09]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [修复]连续预约模式，修复学号数据显示异常的bug，并添加时间自动填充
+            \n2. [调整]调整更新提示弹框，避免出现内容过多时按钮消失的现象
+            \n3. [新增]设置中添加“解绑”按钮显示/隐藏
+            \n4. [其他]优化部分界面显示、提升安全性。
+            \n5. [已知问题]连续预约模式下，账号取消预约后，立即点击预订，预订页不显示当前账号。需手动刷新页面后数据才会同步。由于影响不是很大，故暂不考虑修复~" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.2.0-beta" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-05-04]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. [账号]添加修改备注功能，长按备注名可修改
+            \n2. [绑号]增加批量绑定账号功能，入口：账号绑定→批量。\n（与“导入账号”区别在于，此功能为文本导入且默认备注为姓名+学号后四位，而导入账号默认备注仅为学号。）
+            \n3. [账号]添加多种账号排序方式，可在设置中自由更改
+            \n4. [预约]添加连续预约模式，详情见座位预约页
+            \n5. [系统]添加设置页及相关设置项，加入关于页、版本更新说明页
+            \n6. [记录]预约记录添加入座状态显示，并加入清空记录功能（长按列表）
+            \n7. [其他]细节及体验优化
+            \n8. [修复]修复安卓9上网络数据无法加载的问题
+            \n\n说明：本版本发布主要为修复安卓9兼容性问题。1.2.0版本原本计划五一假期结束后发布，由于添加功能较多，未完全进行测试，可能存在bug。请期待下一版本。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.1.1" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-04-27]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 增加账号导出功能\n2. 座位预约界面增加【彩蛋】，快去发掘吧~" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:text="\nv1.0~1.1.0" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-04-06]~[2019-04-10]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="1.“我的账号”里点击学号可以查看预约记录。\n2.略（记不得了~）" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

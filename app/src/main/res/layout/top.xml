@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:background="@mipmap/note_top_bg"
+    android:gravity="center|center_horizontal">
+    <TextView
+        android:id="@+id/bhnw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="薄荷你玩·出品"
+        android:textColor="#fff"
+        android:textSize="15sp"/>
+</LinearLayout>

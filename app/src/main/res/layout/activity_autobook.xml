@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/setting_bg"
+    tools:context=".SettingActivity"
+    android:orientation="vertical">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@color/setting_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="true"
+            leon:leftText="自动预约开关"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book_logs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowUnderLine="false"
+            leon:isShowRightText="true"
+            leon:leftText="预约日志"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:background="@color/setting_bg"
+        android:id="@+id/auto_book_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="已添加座位"
+            android:background="@color/setting_bg"
+            android:textColor="@color/setting"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/setting_textsize"
+            android:gravity="left"/>
+
+        <com.a520wcf.yllistview.YLListView
+            android:divider="@android:color/transparent"
+            android:id="@+id/auto_book_listView"
+            android:layout_width="match_parent"
+            android:background="@color/lfile_white"
+            android:layout_height="wrap_content"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="添加任务（座位）"
+            android:background="@color/setting_bg"
+            android:textColor="@color/setting"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/setting_textsize"
+            android:gravity="left"/>
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="自习室"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book_seat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowRightText="true"
+            leon:leftText="座位"
+            leon:isShowUnderLine="true"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lfile_white"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/auto_book_add"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_aboutbtn"
+                android:text="添加"
+                android:textAllCaps="true"
+                android:textAppearance="@style/LinkText" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:background="@color/setting_bg"
+            android:gravity="left"
+            android:text="自动预约时间"
+            android:textColor="@color/setting"
+            android:textSize="@dimen/setting_textsize" />
+
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowUnderLine="false"
+            leon:isShowRightText="true"
+            leon:leftText="自动预约时间"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="到达指定时间时，将触发任务：自动预约第二天的06:30-23:00的座位。时间默认是12:00:00" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingLeft="8dp"
+            android:background="@color/setting_bg"
+            android:gravity="left"
+            android:text="人性化服务"
+            android:textColor="@color/setting"
+            android:textSize="@dimen/setting_textsize" />
+        <com.leon.lib.settingview.LSettingItem
+            android:id="@+id/auto_book_1minute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:isShowUnderLine="false"
+            leon:isShowRightText="true"
+            leon:leftText="未达预约时间：自动重试"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="当预约时提示“亲，未到预约时间，不可以预约！”，自动将任务推迟指定时间，直到达到可预约时间。" />
+        </LinearLayout>
+       <com.leon.lib.settingview.LSettingItem
+           android:layout_marginTop="1dp"
+            android:id="@+id/auto_book_efficient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="false"
+            leon:leftText="高效模式（有bug）"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="所有座位任务同时执行（默认是顺序执行）。开启后某些任务可能会出现多次执行的情况（浪费资源），但是预约成功率会更高。" />
+        </LinearLayout>
+        <com.leon.lib.settingview.LSettingItem
+           android:layout_marginTop="1dp"
+            android:id="@+id/auto_book_showToast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            leon:rightStyle="iconSwitch"
+            leon:isShowUnderLine="false"
+            leon:leftText="显示吐司提示"
+            leon:LtextColor="@color/black"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="提示预约开始/结束这样的内容，嫌烦可以屏蔽。默认开启" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/lfile_white"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/auto_book_go"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_aboutbtn"
+                android:text="立即执行"
+                android:textAllCaps="true"
+                android:textAppearance="@style/LinkText.Bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:background="@color/lfile_white"
+                android:text="立即执行当前任务，适合不小心错过了设置的时间的情况。或者就想测试下效果。。" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="18dp"
+                android:paddingTop="15dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:textColor="#999"
+                android:text="说明：\n1.自动服务开启后，将会有通知消息提醒，如果你的手机通知栏未收到消息推送，请前往手机设置开启本软件通知权限。\n2.为了功能的良好使用，强烈建议将本软件加入允许后台启动名单（在手机设置或手机管家中，如果能找到的话）。\n3.叫好哥哥，快~~ 突然不正经(>ω･* )ﾉ~~~" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-15dp"
+            android:layout_marginTop="-15dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo" />
+
+        </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:gravity="center">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="薄荷出品·必属精品"-->
+                <!--style="@style/normalText.span"-->
+                <!--android:textColor="@color/bgColor_divier"-->
+                <!--android:textSize="18sp" />-->
+
+        <!--</LinearLayout>-->
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

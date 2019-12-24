@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notificationLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/notificationImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="15dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/notificationTextView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自动预约"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/notificationTextView_content"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="服务已启动"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/notificationTextView_time"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="right|center"
+        android:layout_marginRight="8dp"
+        android:text="上午 10:20"/>
+
+</LinearLayout>
