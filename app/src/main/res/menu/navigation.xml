@@ -18,8 +18,8 @@
 
     <item
         android:id="@+id/navigation_query"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:title="@string/title_query" />
+        android:icon="@drawable/ic_live_help_black_24dp"
+        android:title="帮助" />
 
     <!--<item-->
         <!--android:id="@+id/navigation_setting"-->

@@ -300,6 +300,7 @@ public class MainActivity extends BaseActivity {
 
         mShare = getSharedPreferences("author",MODE_PRIVATE);
         String author = mShare.getString("author", "");
+        //授权码验证
         if (author.length()!=22) {
             if (author.equals("ok1")){
                 mShare.edit().putString("author","").commit();

@@ -28,6 +28,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-20dp"
+                android:text="\nv2.0.0" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2019-12-30]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微调了一下，送给2021届的小同志们了~" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/textColor_alert_button_destructive" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
                 android:text="\nv1.5.11" />
 
             <TextView

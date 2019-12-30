@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/splash/splash-icon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="images/splash/splash-icon-big.png">
+	<link rel="apple-touch-startup-image" href="images/splash/splash-screen.png" media="screen and (max-device-width: 320px)" />
+	<link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
+	<link rel="apple-touch-startup-image" href="images/splash/splash-screen-six.png" media="(device-width: 375px)">
+	<link rel="apple-touch-startup-image" href="images/splash/splash-screen-six-plus.png" media="(device-width: 414px)">
+	<link rel="apple-touch-startup-image" sizes="640x1096" href="images/splash/splash-screen@3x.png" />
+	<link rel="apple-touch-startup-image" sizes="1024x748" href="images/splash/splash-screen-ipad-landscape" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : landscape)" />
+	<link rel="apple-touch-startup-image" sizes="768x1004" href="images/splash/splash-screen-ipad-portrait.png" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)" />
+	<link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png" media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)" />
+	<link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png" media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)" />
+	<title>一点通座位预定系统</title>
+	<link href="static/css/style.css" rel="stylesheet" type="text/css">
+	<link href="static/css/framework.css" rel="stylesheet" type="text/css">
+	<link href="static/css/owl.theme.css" rel="stylesheet" type="text/css">
+	<link href="static/css/swipebox.css" rel="stylesheet" type="text/css">
+	<link href="static/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="static/css/animate.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="static/js/jquery.js"></script>
+	<script type="text/javascript" src="static/js/jqueryui.js"></script>
+	<script type="text/javascript" src="static/js/framework.plugins.js"></script>
+	<script type="text/javascript" src="static/js/custom.js"></script>
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+	<script src="laydate/laydate.js"></script>
+	<link rel="stylesheet" media="screen" href="laydate/theme/default/laydate.css">
+	<script src="layui/layui.js" charset="utf-8"></script>
+	<script src="js/base.js"></script>
+</head>
+<body id="app">
+	<div class="all-elements">
+		<!-- Page Content-->
+		<div id="content" class="snap-content">
+			<div class="header-clear"></div>
+			<div class="content">
+				<div class="container no-bottom">
+					<h2 style="display:inline-block;">Bulk binding</h2>
+				<div class="decoration"></div>
+					<form role="form" onsubmit="false">
+						<div class="form-group">
+							<label for="stuId">输入数据</label>
+							<textarea type="text" style="height: 250px;" id="mydata" placeholder="请输入账号数据，一行一个（格式：学号，密码，备注），备注选填"  class="form-control"></textarea>
+						</div>
+						<center>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="button" id="book" class="btn btn-primary" onclick="moreBind()">提交</button>
+									<button type="button" class="btn btn-default" onclick="location.href='authorize.html'" style="margin: 5px;">返回</button>
+								</div>
+							</div></center>
+					</form>
+				
+				<div class="decoration"></div>
+				<p><strong>注意：</strong>
+				<p>1. 数据格式：<span style="background: yellow">学号,密码,备注</span> , 一行一个</p>
+				<p >2. 绑定账号需要连接校园网。</p>
+				<p>3. 备注信息选填，不填默认是姓名+学号后四位<span style="color: red;">（逗号是英文符号，每行有两个逗号，不能丢！）</span></p>
+					</p>
+					<div class="decoration" style="margin-bottom: 10px;"></div>
+				<p><a onclick="seat.link();" style="color:#3498db;float:right;margin-bottom: 30px;">☞ 官网（薄荷你玩）</a></p>
+
+				</div>
+
+			</div>
+	
+	</div>
+	<script type="text/javascript">
+        layui.use('layer', function() {
+            var $ = layui.jquery, layer = layui.layer;
+        });
+	</script>
+</body>

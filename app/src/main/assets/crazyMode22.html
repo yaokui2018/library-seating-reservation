@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-title" content="">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="author" content="薄荷你玩">
+	<meta name="keywords" content="薄荷你玩,薄荷,你玩,1361453981,yaokui.ltd" />
+	<meta name="description" content="">
+	<link rel='stylesheet' href='css/style.css' type='text/css'/>
+    <meta name="baidu-site-verification" content="s4q3dcE0jYfFiT4G" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<link href="favicon.ico" rel="SHORTCUT ICON">
+	<title></title>
+<style>
+	a:hover{
+		color:orange;
+	}
+	.sign{
+		width: 80%;
+		border: 1px solid skyblue;
+	    border-radius: 50px;
+	    height: 40px;
+	    padding-left: 5px;
+    	font-size: 15px;
+	    margin: 20px 0;
+	    color: red;
+	}
+	.signBtn,.getSignBtn,.enableCrazy{
+		    border: 1px solid red;
+    border-radius: 50px;
+    background: red;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 20px;
+	}
+	.getSignBtn{
+		border: 1px solid #9C27B0;
+		background: #9C27B0;
+	}
+</style>
+</head>
+<body>
+<center><br><br><h1 style="font-size:30px;color:#f2f2f3;" onclick="location.reload()">叫好哥哥</h1>
+<div>
+	<input class="sign" type="type" style="text-align: center;" name="sign" placeholder="口令">
+	<br>
+	<button class="getSignBtn" type="button">提交</button>
+	
+<img src="images/nan.png" style="margin-top: 80px;
+    width: 50%;
+    display: block;" />
+</div>
+
+	<script src="static/js/jquery.min.js"></script>
+<script>
+	$(".getSignBtn").click(function () {
+		var sign = $(".sign").val();
+		if(sign=="好哥哥"){
+			alert("不要恶意占座位哦！\n\n疯狂抢座双开可能会影响抢座速度。");
+			location.href="crazyMode2.html";
+		}
+		else{
+			alert("口令错误。")
+		}
+	});
+</script>
+</body>
+</html>

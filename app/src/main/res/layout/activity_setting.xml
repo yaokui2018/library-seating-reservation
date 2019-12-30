@@ -191,7 +191,7 @@
             android:layout_height="wrap_content"
             leon:rightStyle="iconSwitch"
             leon:isShowUnderLine="false"
-            leon:leftText="跳过loading加载框"
+            leon:leftText="跳过loading加载框（舍弃）"
             leon:LtextColor="@color/black"
             tools:ignore="MissingConstraints" />
 
