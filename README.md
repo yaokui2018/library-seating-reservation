@@ -6,10 +6,9 @@ library-seating-reservation
 
 - 成品链接 [https://www.lanzous.com/i8dcsyf](https://www.lanzous.com/i8dcsyf)
 - 界面截图
-<img src="http://yaokui.ltd:8080/seat/1/1.jpg" width="400">
-<hr>
-<img src="http://yaokui.ltd:8080/seat/1/2.jpg" width="400"><hr>
-<img src="http://yaokui.ltd:8080/seat/1/3.jpg" width="400"><hr>
-<img src="http://yaokui.ltd:8080/seat/1/4.jpg" width="400"><hr>
-<img src="http://yaokui.ltd:8080/seat/1/5.jpg" width="400"><hr>
-<img src="http://yaokui.ltd:8080/seat/1/6.jpg" width="400"><hr>
+<img src="http://yaokui.ltd:8080/seat/1/1.jpg" width="450">
+<img src="http://yaokui.ltd:8080/seat/1/2.jpg" width="450"><hr>
+<img src="http://yaokui.ltd:8080/seat/1/3.jpg" width="450"><hr>
+<img src="http://yaokui.ltd:8080/seat/1/4.jpg" width="450">
+<img src="http://yaokui.ltd:8080/seat/1/5.jpg" width="450"><hr>
+<img src="http://yaokui.ltd:8080/seat/1/6.jpg" width="450"><hr>
