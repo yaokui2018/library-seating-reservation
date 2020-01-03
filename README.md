@@ -7,4 +7,4 @@ library-seating-reservation
 - 成品链接 [https://www.lanzous.com/i8dcsyf](https://www.lanzous.com/i8dcsyf)
 - 界面截图
 
-![img](http://yaokui.ltd:8080/seat/1/0.png)
+![img](http://yaokui.ltd:8080/seat/1/0.jpg)
