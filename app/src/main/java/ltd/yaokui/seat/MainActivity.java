@@ -83,6 +83,7 @@ import java.util.Date;
 import java.util.List;
 
 import ltd.yaokui.seat.utils.HttpUtils;
+import ltd.yaokui.seat.utils.SignUtil;
 import ltd.yaokui.seat.utils.TxtFileUtil;
 
 import static java.lang.Integer.parseInt;
@@ -339,16 +340,16 @@ public class MainActivity extends BaseActivity {
 //            Toast.makeText(getApplication(),"又过去3天了，这3天时间里学习了哪些内容？\n别忘了总结和反思呀~",Toast.LENGTH_LONG).show();
             settingShare.edit().putInt("kaoyanDay",kaoyanDay).commit();
         }
-        if (querySign2Size()<100){
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-            builder1.setMessage("本地sign2值不足100条了哦，别忘了联网获取~");
-            builder1.setCancelable(false);
-            builder1.setPositiveButton("好的", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {}
-            });
-            builder1.create().show();
-        }
+//        if (querySign2Size()<100){
+//            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+//            builder1.setMessage("本地sign2值不足100条了哦，别忘了联网获取~");
+//            builder1.setCancelable(false);
+//            builder1.setPositiveButton("好的", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {}
+//            });
+//            builder1.create().show();
+//        }
 
         listView = (YLListView) findViewById(R.id.listView);
         // 不添加也有默认的头和底
@@ -470,7 +471,7 @@ public class MainActivity extends BaseActivity {
         menu.add(0, 2, 2, "预约记录");
         menu.add(0, 3, 3, "清空账号");
         menu.add(0, 4, 4, "座位地图");
-        menu.add(0, 5, 5, "Sign列表");
+//        menu.add(0, 5, 5, "Sign列表");
         menu.add(0, 50, 50, "退出");
 //        menu.add(0, 99, 99, "☺ 薄荷你玩");
 
@@ -593,88 +594,88 @@ public class MainActivity extends BaseActivity {
                 mapintent = new Intent(MainActivity.this,SignActivity.class);
                 startActivity(mapintent);
                 break;
-            case R.id.Sign://获取sign
-                builder11 = new AlertDialog.Builder(MainActivity.this);
-                builder11.setIcon(R.mipmap.ic_launcher);
-                builder11.setTitle("更新Sign");
-                builder11.setMessage("本地sign2值数量："+querySign2Size()+"\n\n当前sign值对应时间："+settingShare.getString("seatDate","")+"\n\n【说明】目前学校主要验证参数为sign2 + sign 。\n\nsign2：每发送一次预约/入座请求时就会消耗掉一个。\n\nsign：只要保持sign值对应的时间和当前时间在误差允许范围内就可以了。\n\n联网获取：\n1.获取sign2值，请选择第一项。\n2.底下的数量选择是获取sign值的。");//\n\n提示：sign值获取方式已经调整为本地存储。\n\n即：一次性获取服务器n条数据，暂存在本地，发送相关请求时直接从本地调取，无需手动获取sign值了。" +
-                       // "只需保证本地sign值充裕即可。（闲来没事点两下联网获取就行了）\n\n联网获取：\n一次性获取1000条SIGN值记录，存放到本地。（可以连续获取多次哦。一整天的sign数量在800左右)");
-                builder11.setCancelable(true);
-                builder11.setNeutralButton("查看本地记录", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent mapintent = new Intent(MainActivity.this,SignActivity.class);
-                        startActivity(mapintent);
-                    }
-                });
-                builder11.setPositiveButton("联网获取", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(MainActivity.this);
-                        final String[] items = new String[] { "获取sign2值[sign2!!]","获取sign值[1000]","获取sign值[5000]","获取sign值[10000]","获取sign值[999999]" };
-                        builder.setTitle("选择获取数量[Max]");
-                        builder.setSingleChoiceItems(items,-1, new DialogInterface.OnClickListener() {
-                            @SuppressLint("WrongConstant")
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                int number = 1000;//= settingShare.getInt("signNumber", 1000);
-                                switch (which){
-                                    case 0:
-                                        number = -1;//sign2
-                                        break;
-                                    case 1:
-                                        number = 1000;
-                                        break;
-                                    case 2:
-                                        number = 5000;
-                                        break;
-                                    case 3:
-                                        number = 10000;
-                                        break;
-                                    case 4:
-                                        number = 999999;
-                                        break;
-                                }
-                                showProgressDialog(MainActivity.this, "获取中...");
-
-                                int id_ = settingShare.getInt("signId", 0);
-                                getSignTime = 0;
-                                getSign(null,number,id_);
-                                dialog.dismiss();
-                            }
-                        });
-                        builder.show();
-                    }
-                });
-                builder11.setNegativeButton("好的", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Sign sign = querySign();
-                        if (sign.getSign()==null) {
-                            getSignTime = 0;
-                            Toast.makeText(getApplicationContext(),"本地sign值不足，请联网获取！",Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            settingShare.edit().putString("seatSign", sign.getSign()).commit();
-                            settingShare.edit().putString("seatDate", sign.getDate()).commit();
-
-                            getSignTime = Long.parseLong(sign.getSign().split("\\.")[1]);
-                            Toast.makeText(getApplicationContext(),"已成功调取本地最新可用Sign值~",Toast.LENGTH_SHORT).show();
-                        }
-//                        Calendar instance = Calendar.getInstance();
-//                        int year = instance.get(Calendar.YEAR);//获取年份
-//                        int month = instance.get(Calendar.MONTH);//获取月份
-//                        int day = instance.get(Calendar.DAY_OF_MONTH);//获取日
-//                        String dateStr = year + "-" + (month + 1) + "-" + day + "%2011:59";
-//                        Toast.makeText(getApplicationContext(),"获取中...",Toast.LENGTH_SHORT).show();
-////                        getSign(dateStr);
-                    }
-
-                });
-                builder11.create().show();
-                break;
+//            case R.id.Sign://获取sign
+//                builder11 = new AlertDialog.Builder(MainActivity.this);
+//                builder11.setIcon(R.mipmap.ic_launcher);
+//                builder11.setTitle("更新Sign");
+//                builder11.setMessage("本地sign2值数量："+querySign2Size()+"\n\n当前sign值对应时间："+settingShare.getString("seatDate","")+"\n\n【说明】目前学校主要验证参数为sign2 + sign 。\n\nsign2：每发送一次预约/入座请求时就会消耗掉一个。\n\nsign：只要保持sign值对应的时间和当前时间在误差允许范围内就可以了。\n\n联网获取：\n1.获取sign2值，请选择第一项。\n2.底下的数量选择是获取sign值的。");//\n\n提示：sign值获取方式已经调整为本地存储。\n\n即：一次性获取服务器n条数据，暂存在本地，发送相关请求时直接从本地调取，无需手动获取sign值了。" +
+//                       // "只需保证本地sign值充裕即可。（闲来没事点两下联网获取就行了）\n\n联网获取：\n一次性获取1000条SIGN值记录，存放到本地。（可以连续获取多次哦。一整天的sign数量在800左右)");
+//                builder11.setCancelable(true);
+//                builder11.setNeutralButton("查看本地记录", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Intent mapintent = new Intent(MainActivity.this,SignActivity.class);
+//                        startActivity(mapintent);
+//                    }
+//                });
+//                builder11.setPositiveButton("联网获取", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(MainActivity.this);
+//                        final String[] items = new String[] { "获取sign2值[sign2!!]","获取sign值[1000]","获取sign值[5000]","获取sign值[10000]","获取sign值[999999]" };
+//                        builder.setTitle("选择获取数量[Max]");
+//                        builder.setSingleChoiceItems(items,-1, new DialogInterface.OnClickListener() {
+//                            @SuppressLint("WrongConstant")
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                int number = 1000;//= settingShare.getInt("signNumber", 1000);
+//                                switch (which){
+//                                    case 0:
+//                                        number = -1;//sign2
+//                                        break;
+//                                    case 1:
+//                                        number = 1000;
+//                                        break;
+//                                    case 2:
+//                                        number = 5000;
+//                                        break;
+//                                    case 3:
+//                                        number = 10000;
+//                                        break;
+//                                    case 4:
+//                                        number = 999999;
+//                                        break;
+//                                }
+//                                showProgressDialog(MainActivity.this, "获取中...");
+//
+//                                int id_ = settingShare.getInt("signId", 0);
+//                                getSignTime = 0;
+//                                getSign(null,number,id_);
+//                                dialog.dismiss();
+//                            }
+//                        });
+//                        builder.show();
+//                    }
+//                });
+//                builder11.setNegativeButton("好的", new DialogInterface.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Sign sign = querySign();
+//                        if (sign.getSign()==null) {
+//                            getSignTime = 0;
+//                            Toast.makeText(getApplicationContext(),"本地sign值不足，请联网获取！",Toast.LENGTH_SHORT).show();
+//                        }
+//                        else {
+//                            settingShare.edit().putString("seatSign", sign.getSign()).commit();
+//                            settingShare.edit().putString("seatDate", sign.getDate()).commit();
+//
+//                            getSignTime = Long.parseLong(sign.getSign().split("\\.")[1]);
+//                            Toast.makeText(getApplicationContext(),"已成功调取本地最新可用Sign值~",Toast.LENGTH_SHORT).show();
+//                        }
+////                        Calendar instance = Calendar.getInstance();
+////                        int year = instance.get(Calendar.YEAR);//获取年份
+////                        int month = instance.get(Calendar.MONTH);//获取月份
+////                        int day = instance.get(Calendar.DAY_OF_MONTH);//获取日
+////                        String dateStr = year + "-" + (month + 1) + "-" + day + "%2011:59";
+////                        Toast.makeText(getApplicationContext(),"获取中...",Toast.LENGTH_SHORT).show();
+//////                        getSign(dateStr);
+//                    }
+//
+//                });
+//                builder11.create().show();
+//                break;
             case 50:
                 Toast.makeText(getApplicationContext(), "溜啦溜啦~", Toast.LENGTH_SHORT).show();
                 Intent intentOne = new Intent(getApplicationContext(), AutoSeatService.class);
@@ -702,137 +703,137 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-    public void getSign(final String dateStr,final int number,final int id_){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String strUrlPath = "http://yaokui.ltd:8080/baoming/getSignList_json.jsp?id="+id_+"&author="+mShare.getString("author", "")+"&number="+number;
-                if (number==-1){//获取sign2
-                    if (querySign2Size()>settingShare.getInt("Sign2MaxLimit",10000)) {
-                        BToast.error(getApplicationContext())
-                                .text("你获取的sign2数量已经够多了哦~给其他人留一点吧")
-                                .show();
-                        dismissProgressDialog();
-                        return;
-                    }
-                    strUrlPath = "http://yaokui.ltd:8080/baoming/getSign2List_json.jsp?number="+settingShare.getInt("getSign2Max",1000);;
-                }
-                if (dateStr != null)
-                    strUrlPath += "&date=" + dateStr;
-                String strResult = HttpUtils.submitPostData(strUrlPath, "", "utf-8");
-                strResult = strResult.replace("\r","").replace("\n","");
-
-                if (strResult.equals("error")) {
-                    Message msg = new Message();
-                    msg.what = 0;
-                    Bundle bundle = new Bundle();
-                    bundle.putString("text", "数据获取失败，请检查网络连接。");  //往Bundle中存放数据
-                    bundle.putInt("time", 1);  //往Bundle中put数据
-                    msg.setData(bundle);//mes利用Bundle传递数据
-                    handler.sendMessage(msg);
-
-                    dismissProgressDialog();
-                    return;
-                }
-                JSONObject jsonObject = null;
-                try {
-                    String[] strResultList = strResult.split(";");
-                    int success =0,fail = 0,skip=0;
-                    if (number==-1){//sign2
-                        //创建一个DatabaseHelper对象
-                        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db", dbVersion);
-                        //取得一个只读的数据库对象
-                        SQLiteDatabase db = dbHelper1.getReadableDatabase();
-                        db.beginTransaction(); // 手动设置开始事务
-
-                        for (String s : strResultList) {
-                            jsonObject = new JSONObject(s);
-                            String sign2 = jsonObject.getString("sign2");
-                            ContentValues values = new ContentValues();
-                            //像ContentValues中存放数据
-                            values.put("sign2", sign2);
-                            if (sign2.length() != 53) {
-                                skip++;
-                                continue;
-                            }
-                            long i = db.insertWithOnConflict("sign2", null, values, SQLiteDatabase.CONFLICT_REPLACE);
-                            if (i < 1) {
-                                fail++;
-                            } else
-                                success++;
-
-                        }
-                        db.setTransactionSuccessful(); // 设置事务处理成功，不设置会自动回滚不提交
-                        db.endTransaction(); // 处理完成
-                        db.close();
-                        dismissProgressDialog();
-                        Message msg = new Message();
-                        msg.what = 4;
-                        Bundle bundle = new Bundle();
-                        bundle.putString("content", "成功添加" + success + "条sign2数据，失败" + fail + "条，跳过" + skip + "条。");  //往Bundle中存放数据
-                        msg.setData(bundle);//mes利用Bundle传递数据
-                        handler.sendMessage(msg);
-                    }
-                    else {
-                        String date1 = "", date = "无";
-                        int id_ = -1;
-                        //创建一个DatabaseHelper对象
-                        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db", dbVersion);
-                        //取得一个只读的数据库对象
-                        SQLiteDatabase db = dbHelper1.getReadableDatabase();
-                        db.beginTransaction(); // 手动设置开始事务
-
-                        for (String s : strResultList) {
-                            jsonObject = new JSONObject(s);
-                            String sign = jsonObject.getString("sign");
-                            id_ = jsonObject.getInt("id");
-                            date = jsonObject.getString("date").replace(".0", "");
-                            if (date1.equals(""))
-                                date1 = date;
-                            ContentValues values = new ContentValues();
-                            //像ContentValues中存放数据
-                            values.put("sign", sign);
-                            values.put("date", date);
-                            values.put("id_", id_);
-                            if (sign.length() != 46) {
-                                skip++;
-                                continue;
-                            }
-                            long i = db.insertWithOnConflict("sign", null, values, SQLiteDatabase.CONFLICT_REPLACE);
-                            if (i < 1) {
-                                fail++;
-                            } else
-                                success++;
-
-                        }
-                        db.setTransactionSuccessful(); // 设置事务处理成功，不设置会自动回滚不提交
-                        db.endTransaction(); // 处理完成
-                        db.close();
-                        dismissProgressDialog();
-                        if (id_ > 0)
-                            settingShare.edit().putInt("signId", id_).commit();
-
-                        Message msg = new Message();
-                        msg.what = 4;
-                        Bundle bundle = new Bundle();
-                        bundle.putString("content", "成功添加" + success + "条数据，失败" + fail + "条，跳过" + skip + "条。\n\n日期范围：\n" + date1 + "\nto\n" + date);  //往Bundle中存放数据
-                        msg.setData(bundle);//mes利用Bundle传递数据
-                        handler.sendMessage(msg);
-                    }
-                } catch (Exception e) {
-                    dismissProgressDialog();
-                    Message msg = new Message();
-                    msg.what = 0;
-                    Bundle bundle = new Bundle();
-                    bundle.putString("text", "数据解析出错，请稍后再试。");  //往Bundle中存放数据
-                    bundle.putInt("time", 1);  //往Bundle中put数据
-                    msg.setData(bundle);//mes利用Bundle传递数据
-                    handler.sendMessage(msg);
-                    System.out.print(e);
-                }
-            }
-        }).start();
-    }
+//    public void getSign(final String dateStr,final int number,final int id_){
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                String strUrlPath = "http://yaokui.ltd:8080/baoming/getSignList_json.jsp?id="+id_+"&author="+mShare.getString("author", "")+"&number="+number;
+//                if (number==-1){//获取sign2
+//                    if (querySign2Size()>settingShare.getInt("Sign2MaxLimit",10000)) {
+//                        BToast.error(getApplicationContext())
+//                                .text("你获取的sign2数量已经够多了哦~给其他人留一点吧")
+//                                .show();
+//                        dismissProgressDialog();
+//                        return;
+//                    }
+//                    strUrlPath = "http://yaokui.ltd:8080/baoming/getSign2List_json.jsp?number="+settingShare.getInt("getSign2Max",1000);;
+//                }
+//                if (dateStr != null)
+//                    strUrlPath += "&date=" + dateStr;
+//                String strResult = HttpUtils.submitPostData(strUrlPath, "", "utf-8");
+//                strResult = strResult.replace("\r","").replace("\n","");
+//
+//                if (strResult.equals("error")) {
+//                    Message msg = new Message();
+//                    msg.what = 0;
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("text", "数据获取失败，请检查网络连接。");  //往Bundle中存放数据
+//                    bundle.putInt("time", 1);  //往Bundle中put数据
+//                    msg.setData(bundle);//mes利用Bundle传递数据
+//                    handler.sendMessage(msg);
+//
+//                    dismissProgressDialog();
+//                    return;
+//                }
+//                JSONObject jsonObject = null;
+//                try {
+//                    String[] strResultList = strResult.split(";");
+//                    int success =0,fail = 0,skip=0;
+//                    if (number==-1){//sign2
+//                        //创建一个DatabaseHelper对象
+//                        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db", dbVersion);
+//                        //取得一个只读的数据库对象
+//                        SQLiteDatabase db = dbHelper1.getReadableDatabase();
+//                        db.beginTransaction(); // 手动设置开始事务
+//
+//                        for (String s : strResultList) {
+//                            jsonObject = new JSONObject(s);
+//                            String sign2 = jsonObject.getString("sign2");
+//                            ContentValues values = new ContentValues();
+//                            //像ContentValues中存放数据
+//                            values.put("sign2", sign2);
+//                            if (sign2.length() != 53) {
+//                                skip++;
+//                                continue;
+//                            }
+//                            long i = db.insertWithOnConflict("sign2", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+//                            if (i < 1) {
+//                                fail++;
+//                            } else
+//                                success++;
+//
+//                        }
+//                        db.setTransactionSuccessful(); // 设置事务处理成功，不设置会自动回滚不提交
+//                        db.endTransaction(); // 处理完成
+//                        db.close();
+//                        dismissProgressDialog();
+//                        Message msg = new Message();
+//                        msg.what = 4;
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("content", "成功添加" + success + "条sign2数据，失败" + fail + "条，跳过" + skip + "条。");  //往Bundle中存放数据
+//                        msg.setData(bundle);//mes利用Bundle传递数据
+//                        handler.sendMessage(msg);
+//                    }
+//                    else {
+//                        String date1 = "", date = "无";
+//                        int id_ = -1;
+//                        //创建一个DatabaseHelper对象
+//                        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db", dbVersion);
+//                        //取得一个只读的数据库对象
+//                        SQLiteDatabase db = dbHelper1.getReadableDatabase();
+//                        db.beginTransaction(); // 手动设置开始事务
+//
+//                        for (String s : strResultList) {
+//                            jsonObject = new JSONObject(s);
+//                            String sign = jsonObject.getString("sign");
+//                            id_ = jsonObject.getInt("id");
+//                            date = jsonObject.getString("date").replace(".0", "");
+//                            if (date1.equals(""))
+//                                date1 = date;
+//                            ContentValues values = new ContentValues();
+//                            //像ContentValues中存放数据
+//                            values.put("sign", sign);
+//                            values.put("date", date);
+//                            values.put("id_", id_);
+//                            if (sign.length() != 46) {
+//                                skip++;
+//                                continue;
+//                            }
+//                            long i = db.insertWithOnConflict("sign", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+//                            if (i < 1) {
+//                                fail++;
+//                            } else
+//                                success++;
+//
+//                        }
+//                        db.setTransactionSuccessful(); // 设置事务处理成功，不设置会自动回滚不提交
+//                        db.endTransaction(); // 处理完成
+//                        db.close();
+//                        dismissProgressDialog();
+//                        if (id_ > 0)
+//                            settingShare.edit().putInt("signId", id_).commit();
+//
+//                        Message msg = new Message();
+//                        msg.what = 4;
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("content", "成功添加" + success + "条数据，失败" + fail + "条，跳过" + skip + "条。\n\n日期范围：\n" + date1 + "\nto\n" + date);  //往Bundle中存放数据
+//                        msg.setData(bundle);//mes利用Bundle传递数据
+//                        handler.sendMessage(msg);
+//                    }
+//                } catch (Exception e) {
+//                    dismissProgressDialog();
+//                    Message msg = new Message();
+//                    msg.what = 0;
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("text", "数据解析出错，请稍后再试。");  //往Bundle中存放数据
+//                    bundle.putInt("time", 1);  //往Bundle中put数据
+//                    msg.setData(bundle);//mes利用Bundle传递数据
+//                    handler.sendMessage(msg);
+//                    System.out.print(e);
+//                }
+//            }
+//        }).start();
+//    }
 
     /**
      * webview设置
@@ -1074,42 +1075,45 @@ public class MainActivity extends BaseActivity {
         //获取官方软件sign
         @JavascriptInterface
         public String getSeatSign() {
-            long sysTime = System.currentTimeMillis();
-            int reGetSignTimeAdd = settingShare.getInt("reGetSignTimeAdd",6000);
-            int reGetSignTimeSub = settingShare.getInt("reGetSignTimeSub",0);
-
-            String d = settingShare.getString("seatDate","");
-            Calendar instance = Calendar.getInstance();
-            int year = instance.get(Calendar.YEAR);//获取年份
-            int month=instance.get(Calendar.MONTH)+1;//获取月份
-            int day=instance.get(Calendar.DAY_OF_MONTH);//获取日
-            int hour=instance.get(Calendar.HOUR_OF_DAY);//小时
-            String s = year+"-"+(month<10?"0":"")+month+"-"+(day<10?"0":"")+day+" "+(hour<10?"0":"")+hour;
-            if (!d.startsWith(s)||sysTime-getSignTime>reGetSignTimeAdd*1000||getSignTime-sysTime>reGetSignTimeSub*1000) {
-                Sign sign = querySign();
-                if (sign.getSign()==null) {
-                    getSignTime = 0;
-                    Toast.makeText(getApplicationContext(),"本地sign值不足，请联网获取！",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    settingShare.edit().putString("seatSign", sign.getSign()).commit();
-                    settingShare.edit().putString("seatDate", sign.getDate()).commit();
-
-                    getSignTime = Long.parseLong(sign.getSign().split("\\.")[1]);
-                }
-            }
-            return settingShare.getString("seatSign","99be17c86d7169e81f7ec6416398dadb.1631546119553");
+//            long sysTime = System.currentTimeMillis();
+//            int reGetSignTimeAdd = settingShare.getInt("reGetSignTimeAdd",6000);
+//            int reGetSignTimeSub = settingShare.getInt("reGetSignTimeSub",0);
+//
+//            String d = settingShare.getString("seatDate","");
+//            Calendar instance = Calendar.getInstance();
+//            int year = instance.get(Calendar.YEAR);//获取年份
+//            int month=instance.get(Calendar.MONTH)+1;//获取月份
+//            int day=instance.get(Calendar.DAY_OF_MONTH);//获取日
+//            int hour=instance.get(Calendar.HOUR_OF_DAY);//小时
+//            String s = year+"-"+(month<10?"0":"")+month+"-"+(day<10?"0":"")+day+" "+(hour<10?"0":"")+hour;
+//            if (!d.startsWith(s)||sysTime-getSignTime>reGetSignTimeAdd*1000||getSignTime-sysTime>reGetSignTimeSub*1000) {
+//                Sign sign = querySign();
+//                if (sign.getSign()==null) {
+//                    getSignTime = 0;
+//                    Toast.makeText(getApplicationContext(),"本地sign值不足，请联网获取！",Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    settingShare.edit().putString("seatSign", sign.getSign()).commit();
+//                    settingShare.edit().putString("seatDate", sign.getDate()).commit();
+//
+//                    getSignTime = Long.parseLong(sign.getSign().split("\\.")[1]);
+//                }
+//            }
+//            return settingShare.getString("seatSign","99be17c86d7169e81f7ec6416398dadb.1631546119553");
+            return SignUtil.getSeatSign();
         }
         //获取官方软件sign2
         @JavascriptInterface
         public String getSeatSign2() {
+//
+//                Sign2 sign = querySign2();
+//                if (sign.getSign2()==null) {
+//                    Toast.makeText(getApplicationContext(),"本地sign2值不足，请联网获取！",Toast.LENGTH_SHORT).show();
+//                    return "";
+//                }
+//            return sign.getSign2();
 
-                Sign2 sign = querySign2();
-                if (sign.getSign2()==null) {
-                    Toast.makeText(getApplicationContext(),"本地sign2值不足，请联网获取！",Toast.LENGTH_SHORT).show();
-                    return "";
-                }
-            return sign.getSign2();
+            return SignUtil.getSeatSign2();
         }
         @JavascriptInterface
         public String getSeatDate() {

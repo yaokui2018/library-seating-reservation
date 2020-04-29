@@ -15,15 +15,17 @@
         \n\nლ 软件界面虽然不咋地，但是功能很实用。ლ</string>
     <string name="about_special_title">\n特性\n</string>
     <string name="about_special">1.座位预约账号绑定无限制；
-        \n2.无预约日期限制；
-        \n3.支持批量导入/导出账号；
-        \n4.支持多种账号排序方式（入座模式和预约模式极其人性化 [滑稽]）；
-        \n5....；</string>
+        \n2.支持批量导入/导出账号；
+        \n3.支持多种账号排序方式（入座模式和预约模式极其人性化 [滑稽]）；
+        \n4.免定位入座；
+        \n5.自动预约/入座；
+        \n6.疯狂抢座、扫座；
+        \n7....；</string>
     <string name="about_links_title">\n相关链接\n</string>
     <string name="about_links">
-        官网: https://yaokui.ltd
-        \n\n备用链接：http://yaokui.net
+        官网: http://yaokui.ltd
         \n\n软件更新：https://www.lanzous.com/b664686
+        \n\n开源链接：https://github.com/yaokui2018/library-seating-reservation
         </string>
     <string name="about_developers_title">\n开发者\n</string>
     <string name="about_developers">薄荷你玩: 1361453981@qq.com</string>

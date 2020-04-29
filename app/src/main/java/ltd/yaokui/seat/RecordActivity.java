@@ -32,6 +32,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Calendar;
 
+import ltd.yaokui.seat.utils.SignUtil;
+
 import static java.lang.Math.abs;
 
 public class RecordActivity extends AppCompatActivity {
@@ -44,7 +46,7 @@ public class RecordActivity extends AppCompatActivity {
     private int SeaStatus=0;//入座状态
     private int i;
     SharedPreferences settingShare;
-    long getSignTime = 0;
+//    long getSignTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,31 +154,32 @@ public class RecordActivity extends AppCompatActivity {
         //获取官方软件sign
         @JavascriptInterface
         public String getSeatSign() {
-            long sysTime = System.currentTimeMillis();
-            int reGetSignTimeAdd = settingShare.getInt("reGetSignTimeAdd",6000);
-            int reGetSignTimeSub = settingShare.getInt("reGetSignTimeSub",0);
-
-            String d = settingShare.getString("seatDate","");
-            Calendar instance = Calendar.getInstance();
-            int year = instance.get(Calendar.YEAR);//获取年份
-            int month=instance.get(Calendar.MONTH)+1;//获取月份
-            int day=instance.get(Calendar.DAY_OF_MONTH);//获取日
-            int hour=instance.get(Calendar.HOUR_OF_DAY);//小时
-            String s = year+"-"+(month<10?"0":"")+month+"-"+(day<10?"0":"")+day+" "+(hour<10?"0":"")+hour;
-            if (!d.startsWith(s)||sysTime-getSignTime>reGetSignTimeAdd*1000||getSignTime-sysTime>reGetSignTimeSub*1000) {
-                Sign sign = querySign();
-                if (sign.getSign()==null) {
-                    getSignTime = 0;
-                    Toast.makeText(getApplicationContext(),"本地sign值不足，请联网获取！",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    settingShare.edit().putString("seatSign", sign.getSign()).commit();
-                    settingShare.edit().putString("seatDate", sign.getDate()).commit();
-
-                    getSignTime = Long.parseLong(sign.getSign().split("\\.")[1]);
-                }
-            }
-            return settingShare.getString("seatSign","99be17c86d7169e81f7ec6416398dadb.1631546119553");
+            return SignUtil.getSeatSign();
+//            long sysTime = System.currentTimeMillis();
+//            int reGetSignTimeAdd = settingShare.getInt("reGetSignTimeAdd",6000);
+//            int reGetSignTimeSub = settingShare.getInt("reGetSignTimeSub",0);
+//
+//            String d = settingShare.getString("seatDate","");
+//            Calendar instance = Calendar.getInstance();
+//            int year = instance.get(Calendar.YEAR);//获取年份
+//            int month=instance.get(Calendar.MONTH)+1;//获取月份
+//            int day=instance.get(Calendar.DAY_OF_MONTH);//获取日
+//            int hour=instance.get(Calendar.HOUR_OF_DAY);//小时
+//            String s = year+"-"+(month<10?"0":"")+month+"-"+(day<10?"0":"")+day+" "+(hour<10?"0":"")+hour;
+//            if (!d.startsWith(s)||sysTime-getSignTime>reGetSignTimeAdd*1000||getSignTime-sysTime>reGetSignTimeSub*1000) {
+//                Sign sign = querySign();
+//                if (sign.getSign()==null) {
+//                    getSignTime = 0;
+//                    Toast.makeText(getApplicationContext(),"本地sign值不足，请联网获取！",Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    settingShare.edit().putString("seatSign", sign.getSign()).commit();
+//                    settingShare.edit().putString("seatDate", sign.getDate()).commit();
+//
+//                    getSignTime = Long.parseLong(sign.getSign().split("\\.")[1]);
+//                }
+//            }
+//            return settingShare.getString("seatSign","99be17c86d7169e81f7ec6416398dadb.1631546119553");
         }
         @JavascriptInterface
         public String getNum() {
@@ -194,13 +197,13 @@ public class RecordActivity extends AppCompatActivity {
         //获取官方软件sign2
         @JavascriptInterface
         public String getSeatSign2() {
-
-            Sign2 sign = querySign2();
-            if (sign.getSign2()==null) {
-                Toast.makeText(getApplicationContext(),"本地sign2值不足，请联网获取！",Toast.LENGTH_SHORT).show();
-                return "";
-            }
-            return sign.getSign2();
+            return SignUtil.getSeatSign2();
+//            Sign2 sign = querySign2();
+//            if (sign.getSign2()==null) {
+//                Toast.makeText(getApplicationContext(),"本地sign2值不足，请联网获取！",Toast.LENGTH_SHORT).show();
+//                return "";
+//            }
+//            return sign.getSign2();
         }
         @JavascriptInterface
         public String getNumTokenByNum(int number) {
@@ -395,70 +398,70 @@ public class RecordActivity extends AppCompatActivity {
 
         webview.addJavascriptInterface(new JsInterface(), "seat");
     }
-
-    //sign查询
-    public Sign querySign(){
-        int reGetSignTimeAdd = settingShare.getInt("reGetSignTimeAdd",6000);
-        int reGetSignTimeSub = settingShare.getInt("reGetSignTimeSub",0);
-        int reGetSignTimeSwtich = settingShare.getInt("reGetSignTimeSwtich",0);
-        String reGetSignTimeS="";
-        if (reGetSignTimeSwtich==1){
-            Calendar instance = Calendar.getInstance();
-            int year = instance.get(Calendar.YEAR);//获取年份
-            int month=instance.get(Calendar.MONTH)+1;//获取月份
-            int day=instance.get(Calendar.DAY_OF_MONTH);//获取日
-            int hour=instance.get(Calendar.HOUR_OF_DAY);//小时
-            reGetSignTimeS = "date >= '"+year+"-"+(month<10?"0":"")+month+"-"+(day<10?"0":"")+day+" "+(hour<10?"0":"")+hour+":00:00' and";
-        }
-        DatabaseHelper dbHelper1 = new DatabaseHelper(this, "seat.db",5);
-        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
-        //创建游标对象
-        Cursor cursor = db1.query("sign", new String[]{"id","sign","date","id_"}, reGetSignTimeS+" date > datetime('now','-"+reGetSignTimeAdd+" seconds','localtime') and date < datetime('now','"+reGetSignTimeSub+" seconds','localtime')", null, null, null, "date", "1");
-        //利用游标遍历所有数据对象
-        Sign db = new Sign();
-        if(cursor.moveToNext()){
-            db.setId(cursor.getInt(cursor.getColumnIndex("id")));
-            db.setSign(cursor.getString(cursor.getColumnIndex("sign")));
-            db.setDate(cursor.getString(cursor.getColumnIndex("date")));
-            db.setId_(cursor.getInt(cursor.getColumnIndex("id_")));
-        }
-        return db;
-    }
-
-
-
-    //sign2删除
-    public boolean deleteSign2(int id){
-        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db",5);
-        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
-        return db1.delete("sign2", "id=?", new String[]{id+""})>0;
-    }
-    //sign2查询
-    public Sign2 querySign2(){
-        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db",5);
-        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
-        //创建游标对象
-        Cursor cursor = db1.query("sign2", new String[]{"id","sign2"}, null, null, null, null, "id", "1");
-        //利用游标遍历所有数据对象
-        Sign2 db = new Sign2();
-        if(cursor.moveToNext()){
-            db.setId(cursor.getInt(cursor.getColumnIndex("id")));
-            db.setSign2(cursor.getString(cursor.getColumnIndex("sign2")));
-
-            deleteSign2(cursor.getInt(cursor.getColumnIndex("id")));
-        }
-        return db;
-    }
-    //sign2查询数量
-    public int querySign2Size(){
-        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db",5);
-        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
-        //创建游标对象
-        Cursor cursor = db1.rawQuery("select count(id) from sign2 ",null);
-        cursor.moveToFirst();
-        int count = cursor.getInt(0);
-        cursor.close();
-        return count;
-    }
+//
+//    //sign查询
+//    public Sign querySign(){
+//        int reGetSignTimeAdd = settingShare.getInt("reGetSignTimeAdd",6000);
+//        int reGetSignTimeSub = settingShare.getInt("reGetSignTimeSub",0);
+//        int reGetSignTimeSwtich = settingShare.getInt("reGetSignTimeSwtich",0);
+//        String reGetSignTimeS="";
+//        if (reGetSignTimeSwtich==1){
+//            Calendar instance = Calendar.getInstance();
+//            int year = instance.get(Calendar.YEAR);//获取年份
+//            int month=instance.get(Calendar.MONTH)+1;//获取月份
+//            int day=instance.get(Calendar.DAY_OF_MONTH);//获取日
+//            int hour=instance.get(Calendar.HOUR_OF_DAY);//小时
+//            reGetSignTimeS = "date >= '"+year+"-"+(month<10?"0":"")+month+"-"+(day<10?"0":"")+day+" "+(hour<10?"0":"")+hour+":00:00' and";
+//        }
+//        DatabaseHelper dbHelper1 = new DatabaseHelper(this, "seat.db",5);
+//        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+//        //创建游标对象
+//        Cursor cursor = db1.query("sign", new String[]{"id","sign","date","id_"}, reGetSignTimeS+" date > datetime('now','-"+reGetSignTimeAdd+" seconds','localtime') and date < datetime('now','"+reGetSignTimeSub+" seconds','localtime')", null, null, null, "date", "1");
+//        //利用游标遍历所有数据对象
+//        Sign db = new Sign();
+//        if(cursor.moveToNext()){
+//            db.setId(cursor.getInt(cursor.getColumnIndex("id")));
+//            db.setSign(cursor.getString(cursor.getColumnIndex("sign")));
+//            db.setDate(cursor.getString(cursor.getColumnIndex("date")));
+//            db.setId_(cursor.getInt(cursor.getColumnIndex("id_")));
+//        }
+//        return db;
+//    }
+//
+//
+//
+//    //sign2删除
+//    public boolean deleteSign2(int id){
+//        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db",5);
+//        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+//        return db1.delete("sign2", "id=?", new String[]{id+""})>0;
+//    }
+//    //sign2查询
+//    public Sign2 querySign2(){
+//        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db",5);
+//        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+//        //创建游标对象
+//        Cursor cursor = db1.query("sign2", new String[]{"id","sign2"}, null, null, null, null, "id", "1");
+//        //利用游标遍历所有数据对象
+//        Sign2 db = new Sign2();
+//        if(cursor.moveToNext()){
+//            db.setId(cursor.getInt(cursor.getColumnIndex("id")));
+//            db.setSign2(cursor.getString(cursor.getColumnIndex("sign2")));
+//
+//            deleteSign2(cursor.getInt(cursor.getColumnIndex("id")));
+//        }
+//        return db;
+//    }
+//    //sign2查询数量
+//    public int querySign2Size(){
+//        DatabaseHelper dbHelper1 = new DatabaseHelper(getApplicationContext(), "seat.db",5);
+//        SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+//        //创建游标对象
+//        Cursor cursor = db1.rawQuery("select count(id) from sign2 ",null);
+//        cursor.moveToFirst();
+//        int count = cursor.getInt(0);
+//        cursor.close();
+//        return count;
+//    }
 
 }

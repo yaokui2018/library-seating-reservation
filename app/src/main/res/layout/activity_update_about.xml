@@ -28,6 +28,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-20dp"
+                android:text="\nv2.0.1" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[2020-04-29]\n"
+                android:textColor="@color/canceled" />
+
+            <TextView
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 去除在线获取sign值相关功能。（改为本地生成）
+            \n2.更新关于界面的一些介绍文字。" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@color/ccc" />
+
+            <TextView
+                style="@style/normalText.Big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
                 android:text="\nv2.0.0" />
 
             <TextView
@@ -42,8 +69,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="微调了一下，送给2021届的小同志们了~" />
-
-
 
             <TextView
                 android:layout_width="match_parent"
